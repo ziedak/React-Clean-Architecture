@@ -1,11 +1,11 @@
-// import Currency from 'react-currency-formatter'
+import Currency from 'react-currency-formatter'
 import { useDispatch } from 'react-redux'
 import { addBook, Book } from '../../application/actions/book.actions'
 
 const Product: React.FC<{ product: Book }> = ({ product }) => {
   const dispatch = useDispatch()
 
-  const { isbn, title, price, synopsis, cover } = product
+  const { title, price, synopsis, cover } = product
 
   const addItemToBasket = () => {
     //Sending the product as an action to the REDUX store ..
@@ -14,10 +14,6 @@ const Product: React.FC<{ product: Book }> = ({ product }) => {
 
   return (
     <div className="relative flex flex-col m-5 bg-white z-30 p-10">
-      {/* <p className="absolute top-2 right-2 text-xs italic text-gray-400">
-        {category}
-      </p> */}
-
       <img
         src={cover}
         height={200}
@@ -29,8 +25,9 @@ const Product: React.FC<{ product: Book }> = ({ product }) => {
       <h4 className="my-3">{title}</h4>
 
       <p className="text-xs my-2 line-clamp-2">{synopsis}</p>
+
       <div className="mb-5">
-        {/* <Currency quantity={price} currency="EUR" /> */}
+        <Currency quantity={price} currency="EUR" />
       </div>
 
       <button onClick={() => addItemToBasket()} className="mt-auto button">

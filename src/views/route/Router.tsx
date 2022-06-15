@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
 import Layout from '../layout'
-import Cart from '../pages/Cart'
 
 const Home = React.lazy(() => import('../pages/Home'))
-// const Cart = React.lazy(() => import('../pages/Cart'))
+const Cart = React.lazy(() => import('../pages/Cart'))
 
 const NoMatch = () => {
   return (
@@ -32,9 +31,9 @@ export default function Router() {
           <Route
             path="cart/*"
             element={
-              // <React.Suspense fallback={<>...</>}>
-              <Cart />
-              // </React.Suspense>
+              <React.Suspense fallback={<>...</>}>
+                <Cart />
+              </React.Suspense>
             }
           />
 

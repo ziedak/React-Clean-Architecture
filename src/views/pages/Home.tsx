@@ -1,20 +1,14 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadOffers } from '../../application/actions/book.actions'
 import { pageLoaded } from '../../application/actions/ui.action'
-import {
-  getBooks,
-  getmyBooks,
-  getOffers,
-} from '../../application/selectors/books'
+import { getBooks } from '../../application/selectors/books'
 import { getLoading } from '../../application/selectors/ui'
 import ProductFeed from '../components/productFeed'
 
 const Home = () => {
   const dispatch = useDispatch()
   const books = useSelector(getBooks)
-  const myBooks = useSelector(getmyBooks)
-  const offers = useSelector(getOffers)
   const loading = useSelector(getLoading)
 
   useEffect(() => {

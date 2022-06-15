@@ -2276,17 +2276,8 @@ html {
     line-height: 1.25rem;
   }
 }
-.absolute {
-  position: absolute;
-}
 .relative {
   position: relative;
-}
-.top-2 {
-  top: 0.5rem;
-}
-.right-2 {
-  right: 0.5rem;
 }
 .z-30 {
   z-index: 30;
@@ -2374,15 +2365,14 @@ html {
 .normal-case {
   text-transform: none;
 }
-.italic {
-  font-style: italic;
-}
-.text-gray-400 {
-  --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
-}
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 @media (min-width: 768px) {
 

@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
+import Currency from 'react-currency-formatter'
 import { useDispatch, useSelector } from 'react-redux'
 import {
+  addBook,
   deleteBook,
   loadOffers,
   MyBook,
@@ -10,7 +12,6 @@ import {
   calculBestPricesAfterReduction,
   calculTotalPrice,
 } from '../../lib/priceHelper'
-
 const Cart = () => {
   const dispatch = useDispatch()
   const myBooks = useSelector(getmyBooks)
@@ -37,11 +38,18 @@ const Cart = () => {
       </ul> */}
       {myBooks.length > 0 ? (
         <>
-          <h1>Total Price {calculTotalPrice(myBooks)}</h1>
-          <h1>
-            {' '}
-            Price To Pay {calculBestPricesAfterReduction(myBooks, offers)}
-          </h1>
+          <p className="mx-5">
+            Total Price{' '}
+            <Currency quantity={calculTotalPrice(myBooks)} currency="EUR" />
+          </p>
+
+          <p className="mb-5">
+            Price To Pay{' '}
+            <Currency
+              quantity={calculBestPricesAfterReduction(myBooks, offers)}
+              currency="EUR"
+            />
+          </p>
 
           <table className="table w-full">
             <thead>
@@ -69,7 +77,12 @@ const Cart = () => {
                   <td>{book.count} </td>
                   <td>
                     <div className="btn-group">
-                      <button className="btn">+</button>
+                      <button
+                        className="btn"
+                        onClick={() => dispatch(addBook(book))}
+                      >
+                        +
+                      </button>
                       <button
                         className="btn"
                         onClick={() => dispatch(deleteBook(book))}
