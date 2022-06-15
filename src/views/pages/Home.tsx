@@ -18,43 +18,7 @@ const Home = () => {
 
   return (
     <div className="bg-gray-100">
-      {/* <h1>offers {offers.length}</h1>
-      <ul>
-        {offers.map((offer: Offer, i: number) => (
-          <li key={i}>
-            {offer.sliceValue}
-            {offer.type}
-            {offer.value}
-          </li>
-        ))}
-      </ul>
-
-      <h1>My Books {myBooks.length}</h1>
-      <ul>
-        {myBooks.map((book: MyBook) => (
-          <li key={book.isbn} onClick={() => dispatch(deleteBook(book))}>
-            {book.isbn}
-            {book.title}
-            ==== {book.count}
-          </li>
-        ))}
-      </ul> */}
-
-      <h1> Books List</h1>
-      {loading ? (
-        'Loading Books...'
-      ) : (
-        <>
-          {/* <ul>
-            {Books.map((book: Book) => (
-              <li key={book.isbn} onClick={() => dispatch(addBook(book))}>
-                {book.isbn} {book.title}
-              </li>
-            ))}
-          </ul> */}
-          <ProductFeed products={books} />
-        </>
-      )}
+      {loading ? 'Loading Books...' : <ProductFeed products={books} />}
     </div>
   )
 }
